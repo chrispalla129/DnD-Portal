@@ -1,23 +1,18 @@
 import http.server
 import socketserver
 
-
 class RequestHandler(http.server.BaseHTTPRequestHandler):
-    """Custom handler to be tested"""
     def do_GET(self):
-        # print just to confirm that this method is being called
-        print("executing do_GET") # just to confirm...
+        print("executing do_GET")
 
-        self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        self.send_response(200)                         # 200 is code for success
+        self.send_header("Content-type", "text/html")   # Standard Header
         self.end_headers()
 
-        # Here's where all the complicated logic is done to generate HTML.
-        # For clarity here, replace with a simple stand-in:
-        html_file = open('index.html','rb')
+        html_file = open('index.html','rb')             # Open the given file in read-mode in bytes format
         response = html_file.read()
 
-        self.wfile.write(response)
+        self.wfile.write(response)                      # Write the response
         html_file.close()
 
 
