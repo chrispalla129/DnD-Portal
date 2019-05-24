@@ -9,7 +9,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html")   # Standard Header
         self.end_headers()
 
-        html_file = open('index.html','rb')             # Open the given file in read-mode in bytes format
+        html_file = open('src/index.html','rb')         # Open the given file in read-mode in bytes format
         response = html_file.read()
 
         self.wfile.write(response)                      # Write the response
